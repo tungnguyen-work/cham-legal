@@ -14,6 +14,10 @@
             <div class="nav-links">
                 <a href="privacy.html" class="active">Privacy</a>
                 <a href="terms.html">Terms</a>
+                <div class="lang-toggle" role="group" aria-label="Language">
+                    <button type="button" data-lang="vi" class="active">VI</button>
+                    <button type="button" data-lang="en">EN</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -23,14 +27,13 @@
             <img src="icon_ios_sang (1).svg" alt="Chạm app icon">
         </div>
         <h1>Chạm</h1>
-        <p class="hero-subtitle">Chính sách bảo mật · Privacy Policy</p>
-        <span class="badge">Last updated · 02 May 2026</span>
+        <p class="hero-subtitle" data-i18n="subtitle">Chính sách bảo mật</p>
+        <span class="badge" data-i18n="updated">Cập nhật · 02/05/2026</span>
     </header>
 
     <main>
         <article class="card">
-            <span class="lang-label">Tiếng Việt</span>
-
+            <section class="lang-section active" data-lang="vi">
             <h2>Chính sách bảo mật</h2>
             <p>Chạm là ứng dụng quản lý tài chính cá nhân dành cho iOS, được phát triển bởi một nhà phát triển cá nhân tại Việt Nam. Chúng tôi tôn trọng quyền riêng tư của bạn và cam kết bảo vệ thông tin cá nhân mà bạn cung cấp khi sử dụng ứng dụng.</p>
 
@@ -74,11 +77,9 @@
 
             <h3>8. Liên hệ</h3>
             <p>Nếu bạn có thắc mắc hoặc yêu cầu liên quan đến quyền riêng tư, vui lòng liên hệ qua email: <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></p>
+            </section>
 
-            <hr>
-
-            <span class="lang-label">English</span>
-
+            <section class="lang-section" data-lang="en">
             <h2>Privacy Policy</h2>
             <p>Chạm is a personal finance tracker for iOS, developed by an individual developer based in Vietnam. We respect your privacy and are committed to protecting the personal information you provide while using the app.</p>
 
@@ -122,11 +123,14 @@
 
             <h3>8. Contact</h3>
             <p>If you have any questions or requests regarding your privacy, please contact us at: <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></p>
+            </section>
         </article>
     </main>
 
     <footer>
         Chạm © 2025 · <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a>
     </footer>
+
+    <script src="lang.js"></script>
 </body>
 </html>

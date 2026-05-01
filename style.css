@@ -100,6 +100,49 @@ body {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
 }
 
+/* Language toggle */
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 999px;
+    padding: 3px;
+    margin-left: 16px;
+}
+
+.lang-toggle button {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 5px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.18s ease;
+}
+
+.lang-toggle button:hover {
+    color: var(--text-primary);
+}
+
+.lang-toggle button.active {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(38, 89, 242, 0.28);
+}
+
+/* Language section visibility */
+.lang-section {
+    display: none;
+}
+
+.lang-section.active {
+    display: block;
+}
+
 /* Hero */
 .hero {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
@@ -111,14 +154,14 @@ body {
 }
 
 .hero-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 18px rgba(38, 89, 242, 0.3);
-    margin-bottom: 16px;
+    box-shadow: 0 4px 14px rgba(38, 89, 242, 0.28);
+    margin-bottom: 14px;
     overflow: hidden;
     background: #fff;
 }
@@ -127,7 +170,7 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    border-radius: 16px;
+    border-radius: 12px;
 }
 
 .hero h1 {
@@ -227,16 +270,6 @@ main {
     margin: 36px 0;
 }
 
-.card .lang-label {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-secondary);
-    margin-bottom: 12px;
-}
-
 /* Footer */
 footer {
     background: #1C1C1E;
@@ -276,6 +309,15 @@ footer a:hover {
     }
 
     .nav-links {
-        gap: 18px;
+        gap: 14px;
+    }
+
+    .lang-toggle {
+        margin-left: 10px;
+    }
+
+    .lang-toggle button {
+        padding: 4px 9px;
+        font-size: 11px;
     }
 }

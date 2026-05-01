@@ -14,6 +14,10 @@
             <div class="nav-links">
                 <a href="privacy.html">Privacy</a>
                 <a href="terms.html" class="active">Terms</a>
+                <div class="lang-toggle" role="group" aria-label="Language">
+                    <button type="button" data-lang="vi" class="active">VI</button>
+                    <button type="button" data-lang="en">EN</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -23,14 +27,13 @@
             <img src="icon_ios_sang (1).svg" alt="Chạm app icon">
         </div>
         <h1>Chạm</h1>
-        <p class="hero-subtitle">Điều khoản sử dụng · Terms of Use</p>
-        <span class="badge">Last updated · 02 May 2026</span>
+        <p class="hero-subtitle" data-i18n="subtitle">Điều khoản sử dụng</p>
+        <span class="badge" data-i18n="updated">Cập nhật · 02/05/2026</span>
     </header>
 
     <main>
         <article class="card">
-            <span class="lang-label">Tiếng Việt</span>
-
+            <section class="lang-section active" data-lang="vi">
             <h2>Điều khoản sử dụng</h2>
             <p>Vui lòng đọc kỹ Điều khoản sử dụng này trước khi sử dụng ứng dụng Chạm. Bằng việc tải xuống, cài đặt hoặc sử dụng ứng dụng, bạn đồng ý bị ràng buộc bởi các điều khoản dưới đây.</p>
 
@@ -76,11 +79,9 @@
 
             <h3>10. Liên hệ</h3>
             <p>Mọi thắc mắc liên quan đến Điều khoản sử dụng, vui lòng liên hệ: <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></p>
+            </section>
 
-            <hr>
-
-            <span class="lang-label">English</span>
-
+            <section class="lang-section" data-lang="en">
             <h2>Terms of Use</h2>
             <p>Please read these Terms of Use carefully before using the Chạm app. By downloading, installing, or using the app, you agree to be bound by the terms below.</p>
 
@@ -126,11 +127,14 @@
 
             <h3>10. Contact</h3>
             <p>For any questions regarding these Terms, please contact: <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></p>
+            </section>
         </article>
     </main>
 
     <footer>
         Chạm © 2025 · <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a>
     </footer>
+
+    <script src="lang.js"></script>
 </body>
 </html>
