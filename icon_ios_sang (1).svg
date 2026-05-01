@@ -1,0 +1,42 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#e8f0fb"/>
+      <stop offset="100%" stop-color="#c8d8f0"/>
+    </linearGradient>
+    <linearGradient id="f1" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="f2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="f3" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+    <linearGradient id="tip" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#bfdbfe"/>
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="16" stdDeviation="30" flood-color="#1d4ed8" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)" rx="180"/>
+  <g filter="url(#sh)">
+    <polygon points="340,820 490,460 600,520 440,860" fill="url(#f1)"/>
+    <polygon points="490,460 630,380 710,430 600,520" fill="url(#f3)"/>
+    <polygon points="440,860 600,520 710,430 560,760" fill="url(#f2)"/>
+    <polygon points="710,140 630,380 490,460 600,340" fill="url(#tip)"/>
+    <polygon points="710,140 600,340 710,430 760,290" fill="url(#f3)"/>
+    <polygon points="710,140 760,290 710,430 630,380" fill="url(#f2)"/>
+    <polygon points="200,680 340,820 490,460 360,340" fill="url(#f1)"/>
+    <polygon points="200,680 360,340 490,460 340,600" fill="url(#f2)"/>
+    <line x1="490" y1="460" x2="600" y2="340" stroke="#ffffff" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round"/>
+    <line x1="490" y1="460" x2="600" y2="520" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2" stroke-linecap="round"/>
+    <line x1="360" y1="340" x2="490" y2="460" stroke="#ffffff" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round"/>
+    <line x1="710" y1="430" x2="600" y2="340" stroke="#bfdbfe" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -111,29 +111,23 @@ body {
 }
 
 .hero-icon {
-    width: 88px;
-    height: 88px;
+    width: 96px;
+    height: 96px;
     border-radius: 22px;
-    background: #fff;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 8px 24px rgba(38, 89, 242, 0.35);
     margin-bottom: 20px;
+    overflow: hidden;
+    background: #fff;
 }
 
-.hero-icon-inner {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+.hero-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 22px;
 }
 
 .hero h1 {
