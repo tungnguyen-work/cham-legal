@@ -15,7 +15,8 @@
                 <a href="privacy.html">Privacy</a>
                 <a href="terms.html" class="active">Terms</a>
                 <div class="lang-toggle" role="group" aria-label="Language">
-                    <button type="button" id="lang-toggle-btn" class="active">EN</button>
+                    <button type="button" data-lang="vi" class="active">VI</button>
+                    <button type="button" data-lang="en">EN</button>
                 </div>
             </div>
         </div>
@@ -151,17 +152,23 @@
             var enEls = document.body.querySelectorAll('[lang="en"]');
             for (var i = 0; i < viEls.length; i++) viEls[i].style.display = lang === "vi" ? "" : "none";
             for (var j = 0; j < enEls.length; j++) enEls[j].style.display = lang === "en" ? "" : "none";
-            var btn = document.getElementById("lang-toggle-btn");
-            if (btn) btn.textContent = lang === "vi" ? "EN" : "VI";
+            var btns = document.querySelectorAll(".lang-toggle button[data-lang]");
+            for (var k = 0; k < btns.length; k++) {
+                if (btns[k].dataset.lang === lang) btns[k].classList.add("active");
+                else btns[k].classList.remove("active");
+            }
         }
         var current = getInitial();
         apply(current);
-        var btn = document.getElementById("lang-toggle-btn");
-        if (btn) {
-            btn.addEventListener("click", function () {
-                current = current === "vi" ? "en" : "vi";
-                localStorage.setItem(KEY, current);
-                apply(current);
+        var btns = document.querySelectorAll(".lang-toggle button[data-lang]");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var lang = this.dataset.lang;
+                if (lang !== current) {
+                    current = lang;
+                    localStorage.setItem(KEY, current);
+                    apply(current);
+                }
             });
         }
     })();
