@@ -15,8 +15,7 @@
                 <a href="privacy.html" class="active">Privacy</a>
                 <a href="terms.html">Terms</a>
                 <div class="lang-toggle" role="group" aria-label="Language">
-                    <button type="button" data-lang="vi" class="active">VI</button>
-                    <button type="button" data-lang="en">EN</button>
+                    <button type="button" id="lang-toggle-btn" class="active">EN</button>
                 </div>
             </div>
         </div>
@@ -27,13 +26,15 @@
             <img src="icon_ios_sang (1).svg" alt="Chạm app icon">
         </div>
         <h1>Chạm</h1>
-        <p class="hero-subtitle" data-i18n="subtitle">Chính sách bảo mật</p>
-        <span class="badge" data-i18n="updated">Cập nhật · 02/05/2026</span>
+        <p class="hero-subtitle" lang="vi">Chính sách bảo mật</p>
+        <p class="hero-subtitle" lang="en">Privacy Policy</p>
+        <span class="badge" lang="vi">Cập nhật · 02/05/2026</span>
+        <span class="badge" lang="en">Last updated · May 2, 2026</span>
     </header>
 
     <main>
         <article class="card">
-            <section class="lang-section active" data-lang="vi">
+            <div lang="vi">
             <h2>Chính sách bảo mật</h2>
             <p>Chạm là ứng dụng quản lý tài chính cá nhân dành cho iOS, được phát triển bởi một nhà phát triển cá nhân tại Việt Nam. Chúng tôi tôn trọng quyền riêng tư của bạn và cam kết bảo vệ thông tin cá nhân mà bạn cung cấp khi sử dụng ứng dụng.</p>
 
@@ -77,9 +78,9 @@
 
             <h3>8. Liên hệ</h3>
             <p>Nếu bạn có thắc mắc hoặc yêu cầu liên quan đến quyền riêng tư, vui lòng liên hệ qua email: <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></p>
-            </section>
+            </div>
 
-            <section class="lang-section" data-lang="en">
+            <div lang="en">
             <h2>Privacy Policy</h2>
             <p>Chạm is a personal finance tracker for iOS, developed by an individual developer based in Vietnam. We respect your privacy and are committed to protecting the personal information you provide while using the app.</p>
 
@@ -123,7 +124,7 @@
 
             <h3>8. Contact</h3>
             <p>If you have any questions or requests regarding your privacy, please contact us at: <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></p>
-            </section>
+            </div>
         </article>
     </main>
 
@@ -131,6 +132,35 @@
         Chạm © 2025 · <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a>
     </footer>
 
-    <script src="lang.js"></script>
+    <script>
+    (function () {
+        var KEY = "cham-lang";
+        function getInitial() {
+            var saved = localStorage.getItem(KEY);
+            if (saved === "vi" || saved === "en") return saved;
+            var nav = (navigator.language || "").toLowerCase();
+            return nav.indexOf("vi") === 0 ? "vi" : "en";
+        }
+        function apply(lang) {
+            document.documentElement.lang = lang;
+            var viEls = document.body.querySelectorAll('[lang="vi"]');
+            var enEls = document.body.querySelectorAll('[lang="en"]');
+            for (var i = 0; i < viEls.length; i++) viEls[i].style.display = lang === "vi" ? "" : "none";
+            for (var j = 0; j < enEls.length; j++) enEls[j].style.display = lang === "en" ? "" : "none";
+            var btn = document.getElementById("lang-toggle-btn");
+            if (btn) btn.textContent = lang === "vi" ? "EN" : "VI";
+        }
+        var current = getInitial();
+        apply(current);
+        var btn = document.getElementById("lang-toggle-btn");
+        if (btn) {
+            btn.addEventListener("click", function () {
+                current = current === "vi" ? "en" : "vi";
+                localStorage.setItem(KEY, current);
+                apply(current);
+            });
+        }
+    })();
+    </script>
 </body>
 </html>

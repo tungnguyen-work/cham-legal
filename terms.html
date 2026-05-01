@@ -15,8 +15,7 @@
                 <a href="privacy.html">Privacy</a>
                 <a href="terms.html" class="active">Terms</a>
                 <div class="lang-toggle" role="group" aria-label="Language">
-                    <button type="button" data-lang="vi" class="active">VI</button>
-                    <button type="button" data-lang="en">EN</button>
+                    <button type="button" id="lang-toggle-btn" class="active">EN</button>
                 </div>
             </div>
         </div>
@@ -27,13 +26,15 @@
             <img src="icon_ios_sang (1).svg" alt="Chạm app icon">
         </div>
         <h1>Chạm</h1>
-        <p class="hero-subtitle" data-i18n="subtitle">Điều khoản sử dụng</p>
-        <span class="badge" data-i18n="updated">Cập nhật · 02/05/2026</span>
+        <p class="hero-subtitle" lang="vi">Điều khoản sử dụng</p>
+        <p class="hero-subtitle" lang="en">Terms of Use</p>
+        <span class="badge" lang="vi">Cập nhật · 02/05/2026</span>
+        <span class="badge" lang="en">Last updated · May 2, 2026</span>
     </header>
 
     <main>
         <article class="card">
-            <section class="lang-section active" data-lang="vi">
+            <div lang="vi">
             <h2>Điều khoản sử dụng</h2>
             <p>Vui lòng đọc kỹ Điều khoản sử dụng này trước khi sử dụng ứng dụng Chạm. Bằng việc tải xuống, cài đặt hoặc sử dụng ứng dụng, bạn đồng ý bị ràng buộc bởi các điều khoản dưới đây.</p>
 
@@ -79,9 +80,9 @@
 
             <h3>10. Liên hệ</h3>
             <p>Mọi thắc mắc liên quan đến Điều khoản sử dụng, vui lòng liên hệ: <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></p>
-            </section>
+            </div>
 
-            <section class="lang-section" data-lang="en">
+            <div lang="en">
             <h2>Terms of Use</h2>
             <p>Please read these Terms of Use carefully before using the Chạm app. By downloading, installing, or using the app, you agree to be bound by the terms below.</p>
 
@@ -127,7 +128,7 @@
 
             <h3>10. Contact</h3>
             <p>For any questions regarding these Terms, please contact: <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></p>
-            </section>
+            </div>
         </article>
     </main>
 
@@ -135,6 +136,35 @@
         Chạm © 2025 · <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a>
     </footer>
 
-    <script src="lang.js"></script>
+    <script>
+    (function () {
+        var KEY = "cham-lang";
+        function getInitial() {
+            var saved = localStorage.getItem(KEY);
+            if (saved === "vi" || saved === "en") return saved;
+            var nav = (navigator.language || "").toLowerCase();
+            return nav.indexOf("vi") === 0 ? "vi" : "en";
+        }
+        function apply(lang) {
+            document.documentElement.lang = lang;
+            var viEls = document.body.querySelectorAll('[lang="vi"]');
+            var enEls = document.body.querySelectorAll('[lang="en"]');
+            for (var i = 0; i < viEls.length; i++) viEls[i].style.display = lang === "vi" ? "" : "none";
+            for (var j = 0; j < enEls.length; j++) enEls[j].style.display = lang === "en" ? "" : "none";
+            var btn = document.getElementById("lang-toggle-btn");
+            if (btn) btn.textContent = lang === "vi" ? "EN" : "VI";
+        }
+        var current = getInitial();
+        apply(current);
+        var btn = document.getElementById("lang-toggle-btn");
+        if (btn) {
+            btn.addEventListener("click", function () {
+                current = current === "vi" ? "en" : "vi";
+                localStorage.setItem(KEY, current);
+                apply(current);
+            });
+        }
+    })();
+    </script>
 </body>
 </html>
