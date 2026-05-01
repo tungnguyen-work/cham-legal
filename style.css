@@ -135,12 +135,12 @@ body {
 }
 
 /* Language section visibility */
-.lang-section {
-    display: none;
+body.lang-en [lang="vi"] {
+    display: none !important;
 }
 
-.lang-section.active {
-    display: block;
+body.lang-vi [lang="en"] {
+    display: none !important;
 }
 
 /* Hero */

@@ -7,7 +7,7 @@
     <meta name="description" content="Chính sách bảo mật của ứng dụng Chạm — quản lý tài chính cá nhân.">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="lang-vi">
     <nav class="nav">
         <div class="nav-inner">
             <a href="privacy.html" class="nav-brand">Chạm</a>
@@ -151,10 +151,8 @@
         }
         function apply(lang) {
             document.documentElement.lang = lang;
-            var viEls = document.body.querySelectorAll('[lang="vi"]');
-            var enEls = document.body.querySelectorAll('[lang="en"]');
-            for (var i = 0; i < viEls.length; i++) viEls[i].style.display = lang === "vi" ? "" : "none";
-            for (var j = 0; j < enEls.length; j++) enEls[j].style.display = lang === "en" ? "" : "none";
+            document.body.classList.remove("lang-vi", "lang-en");
+            document.body.classList.add("lang-" + lang);
             var btns = document.querySelectorAll(".lang-toggle button[data-lang]");
             for (var k = 0; k < btns.length; k++) {
                 if (btns[k].dataset.lang === lang) btns[k].classList.add("active");
@@ -169,11 +167,10 @@
         for (var i = 0; i < btns.length; i++) {
             btns[i].addEventListener("click", function () {
                 var lang = this.dataset.lang;
-                if (lang !== current) {
-                    current = lang;
-                    writeSaved(current);
-                    apply(current);
-                }
+                if (lang === current) return;
+                current = lang;
+                writeSaved(current);
+                apply(current);
             });
         }
 
