@@ -134,14 +134,21 @@
     </main>
 
     <footer>
-        Chạm © 2025 · <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a>
+        © 2025 Tung Nguyen. All rights reserved. · <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a>
     </footer>
 
     <script>
     (function () {
         var KEY = "cham-lang";
+
+        function readSaved() {
+            try { return localStorage.getItem(KEY); } catch (e) { return null; }
+        }
+        function writeSaved(v) {
+            try { localStorage.setItem(KEY, v); } catch (e) {}
+        }
         function getInitial() {
-            var saved = localStorage.getItem(KEY);
+            var saved = readSaved();
             if (saved === "vi" || saved === "en") return saved;
             var nav = (navigator.language || "").toLowerCase();
             return nav.indexOf("vi") === 0 ? "vi" : "en";
@@ -158,19 +165,28 @@
                 else btns[k].classList.remove("active");
             }
         }
+
         var current = getInitial();
         apply(current);
+
         var btns = document.querySelectorAll(".lang-toggle button[data-lang]");
         for (var i = 0; i < btns.length; i++) {
             btns[i].addEventListener("click", function () {
                 var lang = this.dataset.lang;
                 if (lang !== current) {
                     current = lang;
-                    localStorage.setItem(KEY, current);
+                    writeSaved(current);
                     apply(current);
                 }
             });
         }
+
+        window.addEventListener("storage", function (e) {
+            if (e.key === KEY && (e.newValue === "vi" || e.newValue === "en") && e.newValue !== current) {
+                current = e.newValue;
+                apply(current);
+            }
+        });
     })();
     </script>
 </body>
