@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hỗ trợ · Chạm</title>
+    <meta name="description" content="Trang hỗ trợ ứng dụng Chạm — quản lý tài chính cá nhân.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="lang-vi">
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="privacy.html" class="nav-brand">Chạm</a>
+            <div class="nav-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="support.html" class="active">Support</a>
+                <div class="lang-toggle" role="group" aria-label="Language">
+                    <button type="button" data-lang="vi" class="active">VI</button>
+                    <button type="button" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-icon">
+            <img src="icon_ios_sang (1).svg" alt="Chạm app icon">
+        </div>
+        <h1>Chạm</h1>
+        <p class="hero-subtitle" lang="vi">Hỗ trợ</p>
+        <p class="hero-subtitle" lang="en">Support</p>
+        <span class="badge" lang="vi">Cập nhật · 02/05/2026</span>
+        <span class="badge" lang="en">Last updated · May 2, 2026</span>
+    </header>
+
+    <main>
+        <article class="card">
+            <div lang="vi">
+            <h2>Hỗ trợ — Chạm</h2>
+            <p>Cảm ơn bạn đã sử dụng Chạm. Nếu bạn cần trợ giúp hoặc có câu hỏi, vui lòng tham khảo các thông tin dưới đây.</p>
+
+            <h3>1. Liên hệ</h3>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></li>
+                <li><strong>Thời gian phản hồi:</strong> trong vòng 24–48 giờ làm việc.</li>
+            </ul>
+
+            <h3>2. Câu hỏi thường gặp</h3>
+
+            <h4>Làm sao khôi phục mua hàng Premium?</h4>
+            <p>Vào <strong>Cài đặt</strong> trong app → chọn <strong>"Khôi phục mua hàng"</strong>. Apple sẽ tự động xác minh và kích hoạt lại quyền Premium đã mua trước đó với cùng Apple ID.</p>
+
+            <h4>Dữ liệu của tôi có lưu online không?</h4>
+            <p>Không. Toàn bộ dữ liệu giao dịch của bạn được lưu trực tiếp trên thiết bị. Chạm không tải dữ liệu tài chính của bạn lên máy chủ.</p>
+
+            <h4>Tính năng OCR và AI có cần kết nối internet không?</h4>
+            <p>Không. Cả OCR (nhận dạng hoá đơn) và các tính năng AI đều hoạt động hoàn toàn offline ngay trên thiết bị, đảm bảo quyền riêng tư của bạn.</p>
+
+            <h4>Làm sao huỷ đăng ký Premium?</h4>
+            <p>Vào <strong>Cài đặt iPhone</strong> → <strong>Apple ID</strong> (tên của bạn ở đầu trang) → <strong>Subscriptions</strong> (Đăng ký) → chọn <strong>Chạm</strong> → nhấn <strong>Cancel Subscription</strong> (Huỷ đăng ký).</p>
+
+            <h3>3. Điều khoản & Chính sách</h3>
+            <ul>
+                <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                <li><a href="terms.html">Điều khoản sử dụng</a></li>
+            </ul>
+            </div>
+
+            <div lang="en">
+            <h2>Support — Chạm</h2>
+            <p>Thank you for using Chạm. If you need help or have questions, please refer to the information below.</p>
+
+            <h3>1. Contact</h3>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a></li>
+                <li><strong>Response time:</strong> within 24–48 business hours.</li>
+            </ul>
+
+            <h3>2. Frequently Asked Questions</h3>
+
+            <h4>How do I restore my Premium purchase?</h4>
+            <p>Open <strong>Settings</strong> inside the app → tap <strong>"Restore Purchases"</strong>. Apple will automatically verify and reactivate any Premium entitlement previously purchased with the same Apple ID.</p>
+
+            <h4>Is my data stored online?</h4>
+            <p>No. All of your transaction data is stored directly on your device. Chạm does not upload your financial data to any server.</p>
+
+            <h4>Do OCR and AI features require an internet connection?</h4>
+            <p>No. Both OCR (receipt scanning) and AI features run entirely offline on your device, keeping your data private.</p>
+
+            <h4>How do I cancel my Premium subscription?</h4>
+            <p>Open <strong>iPhone Settings</strong> → tap your <strong>Apple ID</strong> (your name at the top) → <strong>Subscriptions</strong> → select <strong>Chạm</strong> → tap <strong>Cancel Subscription</strong>.</p>
+
+            <h3>3. Terms & Policies</h3>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+            </ul>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        © 2025 Tung Nguyen. All rights reserved. · <a href="mailto:tungnguyen10305@gmail.com">tungnguyen10305@gmail.com</a>
+    </footer>
+
+    <script>
+    (function () {
+        var KEY = "cham-lang";
+
+        function readSaved() {
+            try { return localStorage.getItem(KEY); } catch (e) { return null; }
+        }
+        function writeSaved(v) {
+            try { localStorage.setItem(KEY, v); } catch (e) {}
+        }
+        function getInitial() {
+            var saved = readSaved();
+            if (saved === "vi" || saved === "en") return saved;
+            var nav = (navigator.language || "").toLowerCase();
+            return nav.indexOf("vi") === 0 ? "vi" : "en";
+        }
+        function apply(lang) {
+            document.documentElement.lang = lang;
+            document.body.classList.remove("lang-vi", "lang-en");
+            document.body.classList.add("lang-" + lang);
+            var btns = document.querySelectorAll(".lang-toggle button[data-lang]");
+            for (var k = 0; k < btns.length; k++) {
+                if (btns[k].dataset.lang === lang) btns[k].classList.add("active");
+                else btns[k].classList.remove("active");
+            }
+        }
+
+        var current = getInitial();
+        apply(current);
+
+        var btns = document.querySelectorAll(".lang-toggle button[data-lang]");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var lang = this.dataset.lang;
+                if (lang === current) return;
+                current = lang;
+                writeSaved(current);
+                apply(current);
+            });
+        }
+
+        window.addEventListener("storage", function (e) {
+            if (e.key === KEY && (e.newValue === "vi" || e.newValue === "en") && e.newValue !== current) {
+                current = e.newValue;
+                apply(current);
+            }
+        });
+    })();
+    </script>
+</body>
+</html>
