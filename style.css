@@ -134,12 +134,25 @@ body {
     box-shadow: 0 2px 6px rgba(38, 89, 242, 0.28);
 }
 
-/* Language section visibility */
-body.lang-en [lang="vi"] {
+/* Language section visibility — hide all lang blocks not matching body.lang-XX */
+body.lang-vi [lang="en"],
+body.lang-vi [lang="ja"],
+body.lang-vi [lang="de"] {
     display: none !important;
 }
-
-body.lang-vi [lang="en"] {
+body.lang-en [lang="vi"],
+body.lang-en [lang="ja"],
+body.lang-en [lang="de"] {
+    display: none !important;
+}
+body.lang-ja [lang="vi"],
+body.lang-ja [lang="en"],
+body.lang-ja [lang="de"] {
+    display: none !important;
+}
+body.lang-de [lang="vi"],
+body.lang-de [lang="en"],
+body.lang-de [lang="ja"] {
     display: none !important;
 }
 

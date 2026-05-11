@@ -18,6 +18,8 @@
                 <div class="lang-toggle" role="group" aria-label="Language">
                     <button type="button" data-lang="vi" class="active">VI</button>
                     <button type="button" data-lang="en">EN</button>
+                    <button type="button" data-lang="ja">JA</button>
+                    <button type="button" data-lang="de">DE</button>
                 </div>
             </div>
         </div>
@@ -107,7 +109,9 @@
     <script>
     (function () {
         var KEY = "cham-lang";
+        var SUPPORTED = ["vi", "en", "ja", "de"];
 
+        function isSupported(l) { return SUPPORTED.indexOf(l) >= 0; }
         function readSaved() {
             try { return localStorage.getItem(KEY); } catch (e) { return null; }
         }
@@ -115,14 +119,20 @@
             try { localStorage.setItem(KEY, v); } catch (e) {}
         }
         function getInitial() {
+            var params = new URLSearchParams(window.location.search);
+            var fromUrl = (params.get("lang") || "").toLowerCase();
+            if (isSupported(fromUrl)) return fromUrl;
             var saved = readSaved();
-            if (saved === "vi" || saved === "en") return saved;
+            if (isSupported(saved)) return saved;
             var nav = (navigator.language || "").toLowerCase();
-            return nav.indexOf("vi") === 0 ? "vi" : "en";
+            if (nav.indexOf("vi") === 0) return "vi";
+            if (nav.indexOf("ja") === 0) return "ja";
+            if (nav.indexOf("de") === 0) return "de";
+            return "en";
         }
         function apply(lang) {
             document.documentElement.lang = lang;
-            document.body.classList.remove("lang-vi", "lang-en");
+            document.body.classList.remove("lang-vi", "lang-en", "lang-ja", "lang-de");
             document.body.classList.add("lang-" + lang);
             var btns = document.querySelectorAll(".lang-toggle button[data-lang]");
             for (var k = 0; k < btns.length; k++) {
@@ -146,7 +156,7 @@
         }
 
         window.addEventListener("storage", function (e) {
-            if (e.key === KEY && (e.newValue === "vi" || e.newValue === "en") && e.newValue !== current) {
+            if (e.key === KEY && isSupported(e.newValue) && e.newValue !== current) {
                 current = e.newValue;
                 apply(current);
             }
